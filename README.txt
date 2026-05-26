@@ -22,6 +22,10 @@ CHECKPOINT 2: POLLING CON TIMEOUT (POLL_T.ASM)
 -------------------------------------------------------------------------
 CHECKPOINT 3: ESCRITURA AL PUERTO PARALELO LPT1 (LPT1.ASM)
 -------------------------------------------------------------------------
-[Espacio vacío para desarrollo futuro]
+* Desarrollo: 
+Se implementó el protocolo Centronics para el envío de datos a través del puerto paralelo (0378h). El programa coloca el carácter "A" (41h) en el bus de datos y posteriormente genera un pulso activo en bajo en el pin STROBE mediante el registro de control (037Ah), esperando 1µs con un bucle de retardo.
+
+* Observación de la ejecución: 
+Durante las pruebas, el programa original se quedaba bloqueado en un bucle infinito en la etiqueta `.wait_ready`. Esto ocurrió porque DOSBox, al no tener una impresora física emulada conectada, retornaba constantemente un 0 en el bit 7 (BUSY#) del puerto de estado (0379h). Para permitir la ejecución del pulso STROBE y la finalización exitosa del programa, se comentó la instrucción `JZ .wait_ready`, demostrando así el correcto envío de la señal al hardware virtual.
 
 -------------------------------------------------------------------------
