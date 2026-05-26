@@ -14,8 +14,11 @@ Al ejecutar el programa desde la consola, este capturaba inmediatamente el "Brea
 -------------------------------------------------------------------------
 CHECKPOINT 2: POLLING CON TIMEOUT (POLL_T.ASM)
 -------------------------------------------------------------------------
-[Espacio vacío para desarrollo futuro]
+* Desarrollo: 
+[cite_start]Se implementó una versión mejorada del polling para el puerto de teclado[cite: 467]. [cite_start]Para evitar que el programa se cuelgue si el hardware no responde, se agregó un contador de reintentos en el registro CX, apoyado por la instrucción LOOP[cite: 477].
 
+* Observación de la ejecución: 
+[cite_start]Al ajustar el contador a un valor bajo y ejecutar POLL_T.COM sin presionar ninguna tecla, el bucle agotó sus intentos correctamente[cite: 493]. [cite_start]El programa detectó el "Timeout", imprimió el mensaje "Timeout: sin respuesta del dispositivo" [cite: 492] y finalizó devolviendo el control a DOSBox. Como detalle, el prompt (C:\U9P1>) se imprimió en la misma línea porque la cadena del mensaje original no incluía caracteres de salto de línea (CR/LF).
 -------------------------------------------------------------------------
 CHECKPOINT 3: ESCRITURA AL PUERTO PARALELO LPT1 (LPT1.ASM)
 -------------------------------------------------------------------------

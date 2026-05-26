@@ -1,0 +1,1 @@
+¹ÿÿäd¨uâø´	º Í!ëä`´ˆÂÍ!´LÍ!Timeout: sin respuesta del dispositivo$
